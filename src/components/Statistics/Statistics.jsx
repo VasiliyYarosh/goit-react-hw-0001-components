@@ -8,7 +8,7 @@ const Statistics = ({title, stats }) => {
         {title &&<h2 className={s.title}>{title}</h2>}
         <ul className={s.statList}>
           {stats.map(stats => (
-            <li className={s.item}>
+            <li key={stats.id} className={s.item}>
               <span className={s.label}>{stats.label}</span>
               <span className={s.percentage}>{stats.percentage}%</span>
             </li>
@@ -27,7 +27,10 @@ Statistics.defaultProps = {
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  percentage: PropTypes.number.isRequired,
-  id: PropTypes.string.isRequired,
+  stats : {
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
+  }
+  
 };
